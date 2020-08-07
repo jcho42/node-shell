@@ -1,11 +1,16 @@
+let pwdvar = require('./pwd')
+let lsvar = require('./ls')
+let catvar = require('./cat')
+let curlvar = require('./curl')
+
 process.stdout.write('prompt > ');
-process.stdin.on('data', (data) => {
-    const cmd = data.toString().trim();
 
-    if (cmd === 'pwd') {
-        process.stdin.write(`${process.cwd()}`)
-    }
+const done = (output) => {
+  process.stdout.write(output)
+  process.stdout.write('\npromt > ')
+}
 
-    process.stdout.write('\nYou typed: ' + cmd);
-    process.stdout.write('\nprompt > ');
-})
+lsvar(done);
+pwdvar(done);
+catvar(done);
+curlvar(done);

@@ -1,6 +1,7 @@
 let fs = require('fs');
 
 module.exports = function(done) {
+  console.log('cat')
   process.stdin.on('data', (data) => {
     const cmd = data.toString().trim();
     if (cmd.startsWith('cat')) {
@@ -15,16 +16,5 @@ module.exports = function(done) {
         })
       })
     }
-
-    // if (cmd === 'ls') {
-    //   fs.readdir('./', 'utf8', (err, files) => {
-    //     if (err) {
-    //       throw err;
-    //     } else {
-    //       process.stdout.write('\n' + files.join('\n'));
-    //       process.stdout.write('\npromt > ');
-    //     }
-    //   });
-    // }
   });
 }

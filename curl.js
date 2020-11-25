@@ -1,6 +1,7 @@
 let request = require('request')
 
 module.exports = function(done) {
+  console.log('curl')
   process.stdin.on('data', (data) => {
     const cmd = data.toString().trim();
     if (cmd.startsWith('curl')) {

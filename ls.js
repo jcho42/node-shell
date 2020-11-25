@@ -2,6 +2,7 @@
 let fs = require('fs');
 
 module.exports = function (done) {
+  console.log('ls')
   process.stdin.on('data', (data) => {
     const cmd = data.toString().trim();
     if (cmd === 'ls') {
@@ -9,7 +10,7 @@ module.exports = function (done) {
         if (err) {
           done(err);
         } else {
-          done('\n' + files.join('\n'));
+          done(files.join('\n'));
         }
       });
     }
